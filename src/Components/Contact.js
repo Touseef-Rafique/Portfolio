@@ -1,7 +1,7 @@
 
 
 import React from 'react';
-import { FaGithub, FaLinkedin, FaEnvelope, FaFacebook, FaInstagram, FaWhatsapp } from 'react-icons/fa';
+import {  FaLinkedin, FaEnvelope, FaFacebook, FaInstagram, FaWhatsapp } from 'react-icons/fa';
 import "../Styles/Styles.css";
 import Footer from './Footer'; 
 

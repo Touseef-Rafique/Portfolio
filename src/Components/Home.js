@@ -32,10 +32,10 @@ const Home = () => {
 
           <div className="col-md-6 d-flex justify-content-center mt-4 mt-md-0">
             <img
-              src="/me.jpg"
-              alt="My Photo"
-              className="img-fluid home-img"
-            />
+  src="/me.jpg"
+  alt="Muhammad Touseef Rafique"
+  className="img-fluid home-img"
+/>
           </div>
         </div>
       </div>
