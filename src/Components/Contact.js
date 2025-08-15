@@ -1,7 +1,7 @@
 
 
 import React from 'react';
-import { FaGithub, FaLinkedin, FaEnvelope, FaFacebook, FaInstagram } from 'react-icons/fa';
+import { FaGithub, FaLinkedin, FaEnvelope, FaFacebook, FaInstagram, FaWhatsapp } from 'react-icons/fa';
 import "../Styles/Styles.css";
 import Footer from './Footer'; 
 
@@ -20,17 +20,18 @@ const Contact = () => {
             </p>
 
             <div className="social-links">
-              <a href="https://github.com/touseef" target="_blank" rel="noreferrer">
-                <FaGithub />
-              </a>
+              
               <a href="https://linkedin.com/in/touseef" target="_blank" rel="noreferrer">
                 <FaLinkedin />
               </a>
-              <a href="https://facebook.com/touseefrafique" target="_blank" rel="noreferrer">
-                <FaFacebook />
-              </a>
-              <a href="https://instagram.com/touseefrafique" target="_blank" rel="noreferrer">
+             <a href="https://wa.me/923401044550" target="_blank" rel="noreferrer">
+                <FaWhatsapp />
+              </a> 
+              <a href="https://www.instagram.com/muhammadtouseefrafique?igsh=MTV4bTlvcXVwb242dA==" target="_blank" rel="noreferrer">
                 <FaInstagram />
+              </a>
+              <a href="https://www.facebook.com/profile.php?id=61579194996926" target="_blank" rel="noreferrer">
+              <FaFacebook/>
               </a>
             </div>
           </div>
@@ -42,15 +43,7 @@ const Contact = () => {
             <button type="submit">Send Message</button>
           </form>
 
-          <div className="pdf-download">
-            <p>Download a PDF file</p>
-            <button
-              className="download-pdf-button"
-              style={{ backgroundColor: 'rgb(199, 9, 9)', color: 'white' }}
-            >
-              Download PDF
-            </button>
-          </div>
+          
         </div>
       </section>
 

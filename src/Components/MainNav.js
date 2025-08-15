@@ -1,26 +1,24 @@
-
 import React, { useEffect, useState } from 'react';
 import "../Styles/Styles.css";
 
-function MainNav() {
+export default function MainNav() {
   const [activeSection, setActiveSection] = useState('home');
+  const [menuOpen, setMenuOpen] = useState(false); // NEW
 
   const handleScroll = () => {
-    const sections = ['home', 'about','projects','services', 'contact'];
-    for (let section of sections) {
-      const element = document.getElementById(section);
-      if (element) {
-        const rect = element.getBoundingClientRect();
-        if (rect.top <= 80 && rect.bottom >= 80) {
-          setActiveSection(section);
-        }
-      }
+    const sections = ['home', 'about', 'projects', 'services', 'contact'];
+    for (let id of sections) {
+      const el = document.getElementById(id);
+      if (!el) continue;
+      const rect = el.getBoundingClientRect();
+      if (rect.top <= 80 && rect.bottom >= 80) setActiveSection(id);
     }
   };
 
   const scrollToSection = (id) => {
-    const section = document.getElementById(id);
-    section.scrollIntoView({ behavior: 'smooth' });
+    const el = document.getElementById(id);
+    if (el) el.scrollIntoView({ behavior: 'smooth' });
+    setMenuOpen(false); // CLOSE after click
   };
 
   useEffect(() => {
@@ -32,62 +30,34 @@ function MainNav() {
     <nav className="navbar navbar-expand-lg navbar-dark fixed-top">
       <div className="container-fluid">
         <p className="navbar-brand mb-0 fw-bold">Touseef..</p>
-        <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+
+        {/* No data-bs-* here; React controls it */}
+        <button
+          className="navbar-toggler"
+          type="button"
+          aria-controls="navbarNav"
+          aria-expanded={menuOpen}
+          aria-label="Toggle navigation"
+          onClick={() => setMenuOpen((v) => !v)}
+        >
           <span className="navbar-toggler-icon"></span>
         </button>
-        <div className="collapse navbar-collapse" id="navbarNav">
+
+        <div className={`collapse navbar-collapse ${menuOpen ? 'show' : ''}`} id="navbarNav">
           <ul className="navbar-nav ms-auto me-5">
-            <li className="nav-item mx-2">
-              <span
-                className={`nav-link ${activeSection === 'home' ? 'active' : ''}`}
-                onClick={() => scrollToSection('home')}
-              >
-                Home
-              </span>
-            </li>
-            <li className="nav-item mx-2">
-              <span
-                className={`nav-link ${activeSection === 'about' ? 'active' : ''}`}
-                onClick={() => scrollToSection('about')}
-              >
-                About
-              </span>
-            </li>
-            <li className='nav-item mx-2'>
-            <span
-              className={`nav-link ${activeSection ==='projects' ? 'active' : ''}`}
-              onClick={() => scrollToSection('projects')}
-            >
-          Projects
-            </span>
-            </li>
-            <li className='nav-item mx-2'>
-            <span
-              className={`nav-link ${activeSection ==='services' ? 'active' : ''}`}
-              onClick={() => scrollToSection('services')}
-            >
-          Services
-            </span>
-            </li>
-            <li className="nav-item mx-2">
-  <span
-    className={`nav-link ${activeSection === 'contact' ? 'active' : ''}`}
-    onClick={() => scrollToSection('contact')}
-    type="button"
-  >
-    Contact
-  </span>
-</li>
-
-
-
+            {['home', 'about', 'projects', 'services', 'contact'].map((sec) => (
+              <li className="nav-item mx-2" key={sec}>
+                <span
+                  className={`nav-link ${activeSection === sec ? 'active' : ''}`}
+                  onClick={() => scrollToSection(sec)}
+                >
+                  {sec.charAt(0).toUpperCase() + sec.slice(1)}
+                </span>
+              </li>
+            ))}
           </ul>
         </div>
       </div>
     </nav>
   );
 }
-
-export default MainNav;
-
-
