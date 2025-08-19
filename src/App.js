@@ -1,25 +1,40 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { Routes, Route } from "react-router-dom"; // ✅ import router
+
+import Home from "./Components/Home";
+import About from "./Components/About";
+import Contact from "./Components/Contact";
+import MainNav from "./Components/MainNav";
+import Projects from "./Components/Projects";
+import Services from "./Components/Services";
+import Resume from "./Components/Resume";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <MainNav /> {/* ✅ Navigation stays on all pages */}
+
+      <Routes>
+        {/* ✅ Home page with sections */}
+        <Route
+          path="/"
+          element={
+            <>
+              <Home />
+              <About />
+              <Projects />
+              <Services />
+              <Contact />
+            </>
+          }
+        />
+
+        {/* ✅ Separate Resume Page */}
+        <Route path="/resume" element={<Resume />} />
+      </Routes>
+    </>
   );
 }
 
 export default App;
+
