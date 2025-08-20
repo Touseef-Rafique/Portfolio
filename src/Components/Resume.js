@@ -1,7 +1,8 @@
 import React from "react";
 import "../Styles/Styles.css";
-
+import { useNavigate } from "react-router-dom"; 
 const Resume = () => {
+   const navigate = useNavigate();
   return (
     <div className="resume-container">
       {/* Hero Section */}
@@ -160,7 +161,25 @@ const Resume = () => {
         <h2>References</h2>
         <p>Available upon request</p>
       </div>
+       <div className="resume-section" style={{ textAlign: "center", marginTop: "20px" }}>
+        <button
+  className="back-button"
+  onClick={() => {
+    navigate("/");   // go to /
+    window.scrollTo({ top: 0, behavior: "smooth" }); // force scroll to top
+  }}
+>
+  ⬅ Back to Home
+</button>
+
+      </div>
+
+
+
+
+
     </div>
+    
   );
 };
 

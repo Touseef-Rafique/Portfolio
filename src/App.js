@@ -31,6 +31,7 @@ function App() {
 
         {/* ✅ Separate Resume Page */}
         <Route path="/resume" element={<Resume />} />
+        
       </Routes>
     </>
   );

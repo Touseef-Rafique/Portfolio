@@ -149,7 +149,8 @@ body {
 }
 
 .skills li {
-  background-color: #b3a91e;
+  background-color: #c0b10b;
+  
   padding: 10px 16px;
   border-radius: 8px;
   font-weight: 500;
@@ -165,13 +166,15 @@ body {
   padding: 0px 20px;
   background: rgb(5, 5, 61);
   /* color: white; */
-  color: #f7af1f;
+ color: #ffc107;
   text-align: center;
 }
 
 .projects-title {
   margin-bottom: 30px;
-  font-size: 3rem;
+  font-size: 48px;
+  margin-bottom: 60px;
+  font-weight: bold;
 }
 
 
@@ -315,7 +318,7 @@ body {
 }
 
 .section-title span {
-  color: #ffbd39;
+  color: #ffc107;
 }
 
 .services-grid {
@@ -454,4 +457,20 @@ body {
 }
 html {
   scroll-behavior: smooth;
+}
+
+
+.back-button {
+  background-color: #0d6efd; /* Bootstrap blue */
+  color: white;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.back-button:hover {
+  background-color: #084298;
 }
