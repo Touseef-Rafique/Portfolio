@@ -1,62 +1,5 @@
 
 
-// import React from 'react';
-// import {  FaGithub, FaEnvelope, FaFacebook, FaInstagram, FaWhatsapp } from 'react-icons/fa';
-// import "../Styles/Styles.css";
-// import Footer from './Footer'; 
-
-
-
-
-
-// const Contact = () => {
-//   return (
-//     <>
-//       <section id="contact" className="contact-section">
-//         <div className="contact-container">
-//           <h1 className="contact-title">📬 Get in Touch</h1>
-//           <p className="contact-subtitle">Feel free to reach out for collaborations or just to say hi!</p>
-
-//           <div className="contact-details">
-//             <p>
-//               <FaEnvelope className="icon" />
-//               <a href="mailto:youremail@example.com">touseefrafique2008@gmail.com</a>
-//             </p>
-
-//             <div className="social-links">
-              
-//               <a href="https://github.com/Touseef-Rafique" target="_blank" rel="noreferrer">
-//                 <FaGithub />
-//               </a>
-//              <a href="https://wa.me/923401044550" target="_blank" rel="noreferrer">
-//                 <FaWhatsapp />
-//               </a> 
-//               <a href="https://www.instagram.com/muhammadtouseefrafique?igsh=MTV4bTlvcXVwb242dA==" target="_blank" rel="noreferrer">
-//                 <FaInstagram />
-//               </a>
-//               <a href="https://www.facebook.com/profile.php?id=61579194996926" target="_blank" rel="noreferrer">
-//               <FaFacebook/>
-//               </a>
-//             </div>
-//           </div>
-
-//           <form className="contact-form">
-//             <input type="text" placeholder="Your Name" required />
-//             <input type="email" placeholder="Your Email" required />
-//             <textarea rows="5" placeholder="Your Message" required></textarea>
-//             <button type="submit">Send Message</button>
-//           </form>
-
-          
-//         </div>
-//       </section>
-
-//       <Footer />
-//     </>
-//   );
-// };
-
-// export default Contact;
 
 
 import React, { useState } from 'react';
@@ -71,7 +14,7 @@ const Contact = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const phoneNumber = "923401044550"; // 👈 Your WhatsApp number without '+'
+    const phoneNumber = "923024635924"; // 👈 Your WhatsApp number without '+'
     const text = `*New Message from Portfolio*%0A%0A👤 Name: ${name}%0A📧 Email: ${email}%0A💬 Message: ${message}`;
     window.open(`https://wa.me/${phoneNumber}?text=${text}`, "_blank");
   };
@@ -93,7 +36,7 @@ const Contact = () => {
               <a href="https://github.com/Touseef-Rafique" target="_blank" rel="noreferrer">
                 <FaGithub />
               </a>
-              <a href="https://wa.me/923401044550" target="_blank" rel="noreferrer">
+              <a href="https://wa.me/923024635924" target="_blank" rel="noreferrer">
                 <FaWhatsapp />
               </a>
               <a href="https://www.instagram.com/muhammadtouseefrafique?igsh=MTV4bTlvcXVwb242dA==" target="_blank" rel="noreferrer">
