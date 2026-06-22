@@ -80,7 +80,7 @@ const Projects = () => {
   return (
     <section id="projects" className="projects-section">
       <div ref={titleRef} className={`reveal ${titleVisible ? 'visible' : ''}`}>
-        <div className="eyebrow"><span className="idx">// 02</span> work</div>
+        <div className="eyebrow"> work</div>
         <h2 className="projects-title pt-1">Featured Projects</h2>
       </div>
       <p className="projects-subtitle">A curated selection of engineering and CMS solutions</p>

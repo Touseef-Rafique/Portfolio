@@ -46,7 +46,7 @@ const Contact = () => {
       <section id="contact" className="contact-section" ref={sectionRef}>
         <div className={`contact-container reveal ${sectionVisible ? 'visible' : ''}`}>
           <div className="eyebrow" style={{ justifyContent: "center" }}>
-            <span className="idx">// 04</span> contact
+            
           </div>
           <h1 className="contact-title">Get in Touch</h1>
           <p className="contact-subtitle">Feel free to reach out for collaborations or just to say hi!</p>

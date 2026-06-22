@@ -64,7 +64,7 @@ const Services = () => {
     <section id="services" className="services-section">
       <div className="container">
         <div ref={titleRef} className={`reveal ${titleVisible ? 'visible' : ''}`}>
-          <div className="eyebrow"><span className="idx">// 03</span> services</div>
+          <div className="eyebrow"> services</div>
           <h2 className="section-title">Professional <span>Services</span></h2>
         </div>
         <div className="services-grid">
