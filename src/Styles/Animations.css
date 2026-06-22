@@ -1,0 +1,191 @@
+/* ============================================================
+   Animations.css — motion layer for the "Build Log" theme
+   Place at: src/Styles/Animations.css
+   ============================================================ */
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ---------------- Keyframes ---------------- */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(28px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.92); }
+  to   { opacity: 1; transform: scale(1); }
+}
+@keyframes floatY {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-14px); }
+}
+@keyframes shimmer {
+  0%   { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+@keyframes ripple {
+  to { transform: scale(2.6); opacity: 0; }
+}
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  50.01%, 100% { opacity: 0; }
+}
+@keyframes driftA {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50%      { transform: translate(-40px, 50px) scale(1.12); }
+}
+@keyframes driftB {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50%      { transform: translate(50px, -40px) scale(1.08); }
+}
+@keyframes pulseGlow {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(232, 163, 61, 0.0); }
+  50%      { box-shadow: 0 0 0 8px rgba(232, 163, 61, 0.06); }
+}
+
+/* ---------------- Scroll reveal base classes ---------------- */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.7s var(--ease-out, cubic-bezier(0.16,1,0.3,1)),
+              transform 0.7s var(--ease-out, cubic-bezier(0.16,1,0.3,1));
+  will-change: opacity, transform;
+}
+.reveal.visible { opacity: 1; transform: translateY(0); }
+
+.reveal-left {
+  opacity: 0;
+  transform: translateX(-36px);
+  transition: opacity 0.7s cubic-bezier(0.16,1,0.3,1), transform 0.7s cubic-bezier(0.16,1,0.3,1);
+}
+.reveal-left.visible { opacity: 1; transform: translateX(0); }
+
+.reveal-right {
+  opacity: 0;
+  transform: translateX(36px);
+  transition: opacity 0.7s cubic-bezier(0.16,1,0.3,1), transform 0.7s cubic-bezier(0.16,1,0.3,1);
+}
+.reveal-right.visible { opacity: 1; transform: translateX(0); }
+
+.reveal-scale {
+  opacity: 0;
+  transform: scale(0.9);
+  transition: opacity 0.6s cubic-bezier(0.16,1,0.3,1), transform 0.6s cubic-bezier(0.16,1,0.3,1);
+}
+.reveal-scale.visible { opacity: 1; transform: scale(1); }
+
+/* generic stagger delays */
+.delay-1 { transition-delay: 0.08s; }
+.delay-2 { transition-delay: 0.16s; }
+.delay-3 { transition-delay: 0.24s; }
+.delay-4 { transition-delay: 0.32s; }
+.delay-5 { transition-delay: 0.40s; }
+.delay-6 { transition-delay: 0.48s; }
+
+/* ---------------- Hero page-load entrance ---------------- */
+.hero-anim-1 { animation: fadeUp 0.8s cubic-bezier(0.16,1,0.3,1) 0.05s both; }
+.hero-anim-2 { animation: fadeUp 0.8s cubic-bezier(0.16,1,0.3,1) 0.2s  both; }
+.hero-anim-3 { animation: fadeUp 0.8s cubic-bezier(0.16,1,0.3,1) 0.35s both; }
+.hero-anim-4 { animation: fadeUp 0.8s cubic-bezier(0.16,1,0.3,1) 0.5s  both; }
+.hero-anim-img { animation: scaleIn 0.9s cubic-bezier(0.16,1,0.3,1) 0.3s both; }
+
+.float-anim { animation: floatY 5s ease-in-out infinite; }
+
+/* ---------------- Card hover micro-interactions ---------------- */
+.tilt-card {
+  position: relative;
+  transition: transform 0.15s ease-out, box-shadow 0.35s ease, border-color 0.35s ease;
+  overflow: hidden;
+}
+.tilt-card:hover {
+  box-shadow: 0 25px 50px -18px rgba(0,0,0,0.55);
+}
+.tilt-card::before {
+  content: "";
+  position: absolute;
+  top: 0; left: -150%;
+  width: 60%; height: 100%;
+  background: linear-gradient(120deg, transparent, rgba(255,255,255,0.10), transparent);
+  transform: skewX(-20deg);
+  transition: left 0.7s ease;
+  pointer-events: none;
+}
+.tilt-card:hover::before { left: 150%; }
+
+/* ---------------- Icon bounce ---------------- */
+.icon-bounce {
+  display: inline-block;
+  transition: transform 0.35s cubic-bezier(0.34,1.56,0.64,1);
+}
+.icon-bounce:hover {
+  transform: translateY(-4px) rotate(-6deg) scale(1.15);
+}
+
+/* ---------------- Nav link underline ---------------- */
+.nav-underline { position: relative; cursor: pointer; }
+
+/* Navbar background transition on scroll */
+.navbar.fixed-top {
+  transition: background-color 0.35s ease, box-shadow 0.35s ease, backdrop-filter 0.35s ease, padding 0.35s ease;
+}
+.navbar.nav-scrolled {
+  padding: 9px 0;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.35);
+}
+
+/* Mobile menu open/close transition */
+.collapse.navbar-collapse {
+  transition: max-height 0.4s ease, opacity 0.35s ease;
+  overflow: hidden;
+}
+
+/* ---------------- Button ripple / shine ---------------- */
+.btn-ripple { position: relative; overflow: hidden; }
+.btn-ripple .ripple-circle {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.5);
+  transform: scale(0);
+  animation: ripple 0.6s linear;
+  pointer-events: none;
+}
+.btn-primary-custom, .contact-form button, .back-button {
+  transition: transform 0.25s var(--ease-out, ease), box-shadow 0.25s ease;
+}
+.btn-primary-custom:hover, .contact-form button:hover, .back-button:hover {
+  box-shadow: 0 10px 28px -8px rgba(232, 163, 61, 0.45);
+}
+.btn-secondary-custom {
+  transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease;
+}
+.btn-secondary-custom:hover {
+  border-color: var(--mint);
+  background: rgba(61, 220, 151, 0.06);
+}
+
+/* ---------------- Skill tag pop ---------------- */
+.skill-tag-anim {
+  transition: transform 0.25s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.25s ease, border-color 0.25s ease;
+}
+.skill-tag-anim:hover {
+  transform: translateY(-3px) scale(1.06);
+  box-shadow: 0 8px 18px -6px rgba(0,0,0,0.4);
+  border-color: var(--mint);
+}
+
+/* ---------------- Gradient text shimmer ---------------- */
+.gradient-text {
+  animation: shimmer 6s linear infinite;
+}
+
+/* ---------------- Stat box pulse on reveal ---------------- */
+.stat-box { animation: none; }
+.stat-box:hover { animation: pulseGlow 1.6s ease-in-out infinite; }
+
+/* ---------------- Terminal cursor blink handled in Styles.css via .t-cursor / .brand-cursor ---------------- */

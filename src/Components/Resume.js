@@ -1,26 +1,40 @@
 import React from "react";
 import "../Styles/Styles.css";
-import { useNavigate } from "react-router-dom"; 
+import "../Styles/Animations.css";
+import { useNavigate } from "react-router-dom";
+import { useScrollReveal } from "../hooks/useScrollReveal";
+import { useMagnetic } from "../hooks/useMagnetic";
+
+const ResumeSection = ({ children, delayClass = "" }) => {
+  const [ref, visible] = useScrollReveal();
+  return (
+    <div ref={ref} className={`resume-section reveal ${delayClass} ${visible ? 'visible' : ''}`}>
+      {children}
+    </div>
+  );
+};
 
 const Resume = () => {
-   const navigate = useNavigate();
+  const navigate = useNavigate();
+  const backBtn = useMagnetic(0.2);
+
   return (
     <div className="resume-container">
-      <div className="resume-hero">
+      <div className="resume-hero hero-anim-1">
         <h1>M. Touseef Rafique</h1>
         <h3>Full-Stack MERN Developer & CMS Expert</h3>
         <p>Email: touseefrafique2008@gmail.com | Phone: +92-302-4635924</p>
         <p>GitHub: github.com/Touseef-Rafique</p>
       </div>
 
-      <div className="resume-section">
+      <ResumeSection>
         <h2>Executive Summary</h2>
         <p>
           Highly adaptive and business-centric <strong>Full-Stack Developer</strong> specialized in the <strong>MERN Stack, WordPress engineering, and Technical SEO</strong>. Proven expertise in merging custom programmatic architectures with robust content management engines to deliver fast, responsive, and discoverable software solutions.
         </p>
-      </div>
+      </ResumeSection>
 
-      <div className="resume-section">
+      <ResumeSection delayClass="delay-1">
         <h2>Technical Core</h2>
         <ul>
           <li><strong>Engineering Stack:</strong> HTML5, CSS3, JavaScript (ES6+), React.js, Node.js, Express.js</li>
@@ -28,9 +42,9 @@ const Resume = () => {
           <li><strong>CMS & Marketing:</strong> WordPress Core, WooCommerce, On-Page SEO, Keyword Strategy, Web Vitals</li>
           <li><strong>Workflows:</strong> Git, Postman API Testing, Agile Sprints, Vercel/Netlify Deployment</li>
         </ul>
-      </div>
+      </ResumeSection>
 
-      <div className="resume-section">
+      <ResumeSection delayClass="delay-2">
         <h2>Professional Experience</h2>
         <div>
           <h3>Full Stack & CMS Developer – Freelance</h3>
@@ -47,9 +61,9 @@ const Resume = () => {
             <li>Engineered responsive structural components in React.js and tested modular endpoints through Node and Express pipelines.</li>
           </ul>
         </div>
-      </div>
+      </ResumeSection>
 
-      <div className="resume-section">
+      <ResumeSection delayClass="delay-3">
         <h2>Education & Credentials</h2>
         <p>
           <strong>Intermediate in Computer Science (I.C.S)</strong><br />
@@ -60,14 +74,17 @@ const Resume = () => {
           <li>WordPress CMS and SEO Strategy Specialization</li>
           <li>Algorithms and Structure Certification – freeCodeCamp</li>
         </ul>
-      </div>
+      </ResumeSection>
 
-       <div className="resume-section" style={{ textAlign: "center", marginTop: "40px" }}>
+      <div className="resume-section" style={{ textAlign: "center", marginTop: "40px" }}>
         <button
-          className="back-button"
+          ref={backBtn.ref}
+          className="back-button btn-ripple"
+          onMouseMove={backBtn.onMouseMove}
+          onMouseLeave={backBtn.onMouseLeave}
           onClick={() => {
-            navigate("/");   
-            window.scrollTo({ top: 0, behavior: "smooth" }); 
+            navigate("/");
+            window.scrollTo({ top: 0, behavior: "smooth" });
           }}
         >
           ⬅ Back to Portfolio
