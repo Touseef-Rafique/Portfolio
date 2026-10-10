@@ -96,7 +96,7 @@ const Home = () => {
 
           <div className="col-md-6 d-flex justify-content-center mt-5 mt-md-0">
             <div className="img-wrapper hero-anim-img float-anim">
-              <img src="/port.jpeg" alt="Muhammad Touseef Rafique" className="home-img" />
+              <img src="portfolio.png" alt="Muhammad Touseef Rafique" className="home-img" />
               <span className="orbit-chip c1">&lt;React /&gt;</span>
               <span className="orbit-chip c2">Node.js</span>
               <span className="orbit-chip c3">WordPress</span>
