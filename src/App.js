@@ -8,6 +8,7 @@ import MainNav from "./Components/MainNav";
 import Projects from "./Components/Projects";
 import Services from "./Components/Services";
 import Resume from "./Components/Resume";
+import Background from "./Components/Background";
 
 function App() {
   const glowRef = useRef(null);
@@ -26,6 +27,7 @@ function App() {
 
   return (
     <>
+      <Background />
       <div className="cursor-glow" ref={glowRef} />
       <MainNav /> {/* ✅ Navigation stays on all pages */}
 

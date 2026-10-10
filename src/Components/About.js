@@ -23,7 +23,7 @@ const About = () => {
         <div ref={expRef} className={`subsection reveal-left ${expVisible ? 'visible' : ''}`}>
           <h2>💼 Experience</h2>
           <ul className="text-list">
-            <li><strong>Full Stack Web Developer</strong> – ECS Tech <span className="year">[2025]</span></li>
+            <li><strong>Full Stack Web Developer</strong> – HulSoft Tech <span className="year">[2026]</span></li>
             <li><strong>Frontend Developer Intern</strong> – ECS Tech <span className="year">[2025]</span></li>
             <li><strong>Freelance Full-Stack & CMS Developer</strong> – Global Clients <span className="year">[Ongoing]</span></li>
           </ul>
@@ -33,8 +33,10 @@ const About = () => {
           <h2>🎓 Education & Certifications</h2>
           <ul className="text-list">
             <li><strong>Intermediate (I.C.S)</strong> – Superior College <span className="year">[2024–2026]</span></li>
+            
+            <li><strong>BS Computational Statistics & Data Analytics</strong> – Government College Univeresty (GCU) <span className="year">Currently Studing</span></li>
             <li><strong>MERN Stack Development</strong> – PNY Platform</li>
-            <li><strong>WordPress & Advanced SEO</strong> – NAVTTC Certification from Government</li>
+            <li><strong>WordPress &  SEO</strong> – NAVTTC Certification from Government</li>
           </ul>
         </div>
 
